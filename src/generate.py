@@ -1,5 +1,6 @@
 from xml.etree import ElementTree
 from collections import OrderedDict
+from functools import reduce
 import io
 import re
 
