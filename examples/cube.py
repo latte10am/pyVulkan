@@ -143,7 +143,7 @@ class Demo:
 
         for i, v in enumerate(queue_props):
             if v.queueFlags & VK_QUEUE_GRAPHICS_BIT:
-                if not graphics_queue_node_index:
+                if graphics_queue_node_index is not None:
                     graphics_queue_node_index = i
 
                 if support_presents[i] == VK_TRUE:
@@ -151,7 +151,7 @@ class Demo:
                     present_queue_node_index = i
                     break
 
-        if not present_queue_node_index:
+        if present_queue_node_index is None:
             for i, v in enumerate(support_presents):
                 if v == VK_TRUE:
                     present_queue_node_index = i
